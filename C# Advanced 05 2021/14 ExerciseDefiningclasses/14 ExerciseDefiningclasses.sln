@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7RawData", "7RawData\7RawDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8CarSalesman", "8CarSalesman\8CarSalesman.csproj", "{19A71307-8313-4DC3-B93E-AB745371151D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9PokemonTrainer", "9PokemonTrainer\9PokemonTrainer.csproj", "{3668EC3F-BD59-4685-8B32-F6CFAFC3A92F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftUniParking", "SoftUniParking\SoftUniParking.csproj", "{FAC32B7D-AAC2-47A2-8902-FA8298216AE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{19A71307-8313-4DC3-B93E-AB745371151D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A71307-8313-4DC3-B93E-AB745371151D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A71307-8313-4DC3-B93E-AB745371151D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3668EC3F-BD59-4685-8B32-F6CFAFC3A92F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3668EC3F-BD59-4685-8B32-F6CFAFC3A92F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3668EC3F-BD59-4685-8B32-F6CFAFC3A92F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3668EC3F-BD59-4685-8B32-F6CFAFC3A92F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC32B7D-AAC2-47A2-8902-FA8298216AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC32B7D-AAC2-47A2-8902-FA8298216AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC32B7D-AAC2-47A2-8902-FA8298216AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC32B7D-AAC2-47A2-8902-FA8298216AE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
