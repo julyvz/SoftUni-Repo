@@ -11,10 +11,13 @@ namespace _1Masterchef
             Queue<int> ingredients = new Queue<int>(Console.ReadLine().Split().Select(int.Parse));
             Stack<int> freshness = new Stack<int>(Console.ReadLine().Split().Select(int.Parse));
 
-            int dippingSauce = 0;
-            int greenSalad = 0;
-            int chocolateCake = 0;
-            int lobster = 0;
+            Dictionary<string, int> cookedDish = new Dictionary<string, int>()
+            {
+                { "Dipping sauce", 0 },
+                { "Green salad", 0 },
+                { "Chocolate cake", 0 },
+                { "Lobster", 0 }
+            };
 
             while (ingredients.Count > 0 && freshness.Count > 0)
             {
@@ -33,20 +36,19 @@ namespace _1Masterchef
                 switch (currDish)
                 {
                     case 150:
-                        dippingSauce++;
-                        
+                        cookedDish["Dipping sauce"]++;
                         break;
 
                     case 250:
-                        greenSalad++;
+                        cookedDish["Green salad"]++;
                         break;
 
                     case 300:
-                        chocolateCake++;
+                        cookedDish["Chocolate cake"]++;
                         break;
 
                     case 400:
-                        lobster++;
+                        cookedDish["Lobster"]++;
                         break;
 
                     default:
@@ -56,7 +58,7 @@ namespace _1Masterchef
                 ingredients.Dequeue();
             }
 
-            if (dippingSauce > 0 && greenSalad > 0 && chocolateCake > 0 && lobster > 0)
+            if (cookedDish.All(x => x.Value > 0))
             {
                 Console.WriteLine("Applause! The judges are fascinated by your dishes!");
             }
@@ -70,21 +72,9 @@ namespace _1Masterchef
                 Console.WriteLine($"Ingredients left: {ingredients.Sum()}");
             }
 
-            if (chocolateCake > 0)
+            foreach (var item in cookedDish.Where(x => x.Value > 0).OrderBy(x => x.Key))
             {
-                Console.WriteLine($" # Chocolate cake --> {chocolateCake}");
-            }
-            if (dippingSauce > 0)
-            {
-                Console.WriteLine($" # Dipping sauce --> {dippingSauce}");
-            }
-            if (greenSalad > 0)
-            {
-                Console.WriteLine($" # Green salad --> {greenSalad}");
-            }
-            if (lobster > 0)
-            {
-                Console.WriteLine($" # Lobster --> {lobster}");
+                Console.WriteLine($" # {item.Key} --> {item.Value}");
             }
         }
     }
