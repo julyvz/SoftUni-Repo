@@ -16,14 +16,7 @@ namespace Shapes
         public double Radius
         {
             get { return radius; }
-            private set
-            {
-                if (value <= 0)
-                {
-                    throw new ArgumentException("Radius1 must be positive");
-                }
-                radius = value;
-            }
+            private set { radius = value; }
         }
 
         public override double CalculateArea()
