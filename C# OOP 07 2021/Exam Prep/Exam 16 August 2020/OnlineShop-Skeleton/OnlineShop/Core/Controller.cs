@@ -10,15 +10,15 @@ namespace OnlineShop.Core
 {
     public class Controller : IController
     {
-        private List<Computer> computers;
-        private List<Component> components;
-        private List<Peripheral> peripherals;
+        private List<IComputer> computers;
+        private List<IComponent> components;
+        private List<IPeripheral> peripherals;
 
         public Controller()
         {
-            computers = new List<Computer>();
-            components = new List<Component>();
-            peripherals = new List<Peripheral>();
+            computers = new List<IComputer>();
+            components = new List<IComponent>();
+            peripherals = new List<IPeripheral>();
         }
 
         public string AddComponent(int computerId, int id, string componentType, string manufacturer, string model, decimal price, double overallPerformance, int generation)
@@ -30,7 +30,8 @@ namespace OnlineShop.Core
                 throw new ArgumentException("Component with this id already exists.");
             }
 
-            Component component;
+            IComponent component;
+
             switch (componentType)
             {
                 case "CentralProcessingUnit":
@@ -76,7 +77,7 @@ namespace OnlineShop.Core
             return $"Component {componentType} with id {id} added successfully in computer with id {computerId}.";
         }
 
-        private Computer EnsureComputerExists(int id)
+        private IComputer EnsureComputerExists(int id)
         {
             var computer = computers.FirstOrDefault(c => c.Id == id);
 
@@ -121,7 +122,8 @@ namespace OnlineShop.Core
                 throw new ArgumentException("Peripheral with this id already exists.");
             }
 
-            Peripheral peripheral;
+            IPeripheral peripheral;
+
             switch (peripheralType)
             {
                 case "Headset":
@@ -161,7 +163,7 @@ namespace OnlineShop.Core
 
             if (computer is null)
             {
-                throw new ArgumentException($" Can't buy a computer with a budget of ${budget}.");
+                throw new ArgumentException($"Can't buy a computer with a budget of ${budget}.");
             }
 
             computers.Remove(computer);
@@ -186,10 +188,9 @@ namespace OnlineShop.Core
 
         public string RemoveComponent(string componentType, int computerId)
         {
-            var computer = EnsureComputerExists(computerId);
-            
+            var computer = EnsureComputerExists(computerId);            
 
-            Component component = (Component)computer.RemoveComponent(componentType);
+            IComponent component = computer.RemoveComponent(componentType);
 
             components.Remove(component);
 
@@ -199,7 +200,7 @@ namespace OnlineShop.Core
         public string RemovePeripheral(string peripheralType, int computerId)
         {
             var computer = EnsureComputerExists(computerId);
-            Peripheral peripheral = (Peripheral)computer.RemovePeripheral(peripheralType);
+            IPeripheral peripheral = computer.RemovePeripheral(peripheralType);
 
             peripherals.Remove(peripheral);
 
